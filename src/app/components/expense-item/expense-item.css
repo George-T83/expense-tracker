@@ -1,0 +1,24 @@
+.expense-amount {
+  font-size: 1.05rem;
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+.amount-small {
+  color: #15803d;
+}
+
+.amount-medium {
+  color: #0f766e;
+}
+
+.amount-large {
+  color: #d97706;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.amount-xl {
+  color: #b91c1c;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,61 @@
+<div class="container mt-4 w-50">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h4 class="card-title mb-3 text-center">Add Expense</h4>
+
+      @if (showWarning()) {
+        <div class="alert alert-danger p-2 small text-center">All fields are required!</div>
+      }
+
+      <div class="mb-3">
+        <label class="form-label">Expense Title</label>
+        <input
+          #titleInput
+          type="text"
+          placeholder="Enter expense title"
+          class="form-control"
+          [class.is-invalid]="showWarning() && !titleInput.value"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Amount ($)</label>
+        <input
+          #amountInput
+          type="number"
+          placeholder="Enter amount"
+          class="form-control"
+          [class.is-invalid]="showWarning() && !amountInput.value"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select
+          #categorySelect
+          class="form-select"
+          [class.is-invalid]="showWarning() && !categorySelect.value"
+        >
+          <option value="" disabled selected>Select category</option>
+          @for (category of categories; track category) {
+            <option [value]="category">{{ category }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="d-grid">
+        <button
+          class="btn btn-primary"
+          (click)="
+            onAddExpense(titleInput.value, amountInput.value, categorySelect.value);
+            titleInput.value = '';
+            amountInput.value = '';
+            categorySelect.value = ''
+          "
+        >
+          Add Expense
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
